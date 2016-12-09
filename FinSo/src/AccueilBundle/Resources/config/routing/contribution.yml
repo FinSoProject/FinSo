@@ -1,0 +1,24 @@
+contribution_index:
+    path:     /
+    defaults: { _controller: "AccueilBundle:Contribution:index" }
+    methods:  GET
+
+contribution_show:
+    path:     /{id}/show
+    defaults: { _controller: "AccueilBundle:Contribution:show" }
+    methods:  GET
+
+contribution_new:
+    path:     /new
+    defaults: { _controller: "AccueilBundle:Contribution:new" }
+    methods:  [GET, POST]
+
+contribution_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AccueilBundle:Contribution:edit" }
+    methods:  [GET, POST]
+
+contribution_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AccueilBundle:Contribution:delete" }
+    methods:  DELETE

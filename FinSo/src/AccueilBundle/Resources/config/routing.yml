@@ -1,0 +1,7 @@
+accueil_projet:
+    resource: "@AccueilBundle/Resources/config/routing/projet.yml"
+    prefix:   /projet
+
+accueil_homepage:
+    path:     /
+    defaults: { _controller: AccueilBundle:Default:index }

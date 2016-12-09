@@ -1,0 +1,24 @@
+contributeur_index:
+    path:     /
+    defaults: { _controller: "AccueilBundle:Contributeur:index" }
+    methods:  GET
+
+contributeur_show:
+    path:     /{id}/show
+    defaults: { _controller: "AccueilBundle:Contributeur:show" }
+    methods:  GET
+
+contributeur_new:
+    path:     /new
+    defaults: { _controller: "AccueilBundle:Contributeur:new" }
+    methods:  [GET, POST]
+
+contributeur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AccueilBundle:Contributeur:edit" }
+    methods:  [GET, POST]
+
+contributeur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AccueilBundle:Contributeur:delete" }
+    methods:  DELETE
