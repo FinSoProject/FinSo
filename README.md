@@ -1,1 +1,1 @@
-# FinSo
+# Finso
