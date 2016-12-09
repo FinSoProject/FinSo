@@ -13,7 +13,14 @@ class ProjetType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('description')->add('montant')->add('utilisateur')        ;
+        $builder
+            ->add('nom')
+            ->add('description')
+            ->add('montant')
+            ->add('utilisateur') 
+            ->add('Valider', 'submit') 
+            ->add('Annuler','reset') 
+        ;
     }
     
     /**

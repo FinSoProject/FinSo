@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contribution</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contribution.id }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ contribution.montant }}</td>
+            </tr>
+            <tr>
+                <th>Typepayement</th>
+                <td>{{ contribution.typepayement }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contribution_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('contribution_edit', { 'id': contribution.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

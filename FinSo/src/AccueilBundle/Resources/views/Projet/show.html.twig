@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Projet</h1>
+
+
+
+   <ul class="list-group">
+    <li class="list-group-item"><u>N°</u> : {{ projet.id }}</li>
+      <li class="list-group-item"><u>Nom</u> : {{ projet.nom }}</li>
+      <li class="list-group-item"><u>Description</u> : {{ projet.description}}</li>
+      <li class="list-group-item"><u>Montant</u> : {{ projet.montant }}</li>
+      
+  </ul>
+
+    <ul>
+        <li>
+            <a href="{{ path('projet_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('projet_edit', { 'id': projet.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

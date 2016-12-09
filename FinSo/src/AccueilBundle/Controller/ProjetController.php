@@ -22,7 +22,7 @@ class ProjetController extends Controller
 
         $projets = $em->getRepository('AccueilBundle:Projet')->findAll();
 
-        return $this->render('projet/index.html.twig', array(
+        return $this->render('AccueilBundle:Projet:index.html.twig', array(
             'projets' => $projets,
         ));
     }
@@ -45,7 +45,7 @@ class ProjetController extends Controller
             return $this->redirectToRoute('projet_show', array('id' => $projet->getId()));
         }
 
-        return $this->render('projet/new.html.twig', array(
+        return $this->render('AccueilBundle:Projet:new.html.twig', array(
             'projet' => $projet,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class ProjetController extends Controller
     {
         $deleteForm = $this->createDeleteForm($projet);
 
-        return $this->render('projet/show.html.twig', array(
+        return $this->render('AccueilBundle:Projet:show.html.twig', array(
             'projet' => $projet,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,9 +81,9 @@ class ProjetController extends Controller
             return $this->redirectToRoute('projet_edit', array('id' => $projet->getId()));
         }
 
-        return $this->render('projet/edit.html.twig', array(
+        return $this->render('AccueilBundle:Projet:edit.html.twig', array(
             'projet' => $projet,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
