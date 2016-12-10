@@ -21,6 +21,11 @@ class ComposerStaticInitb1457dc820bfa3dc396be26a509a135b
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vich\\UploaderBundle\\' => 20,
+            'Vich\\TestBundle\\' => 16,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Util\\' => 22,
@@ -65,6 +70,14 @@ class ComposerStaticInitb1457dc820bfa3dc396be26a509a135b
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vich\\UploaderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
+        ),
+        'Vich\\TestBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle/Tests/Fixtures/App/src/TestBundle',
+        ),
         'Symfony\\Polyfill\\Util\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-util',
@@ -188,6 +201,13 @@ class ComposerStaticInitb1457dc820bfa3dc396be26a509a135b
             'SensioLabs\\Security' => 
             array (
                 0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
+            ),
+        ),
+        'M' => 
+        array (
+            'Metadata\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jms/metadata/src',
             ),
         ),
         'D' => 
