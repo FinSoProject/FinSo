@@ -38,9 +38,25 @@ class ProjetController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // $projet->setImageName(date("Yid_Hms") . "_" . $projet->getImageName());
+            // $projet->getImageFile()->move(
+            //     $projet->getImageFile()->getPath(),
+            //      $projet->getImageName()
+            //  );
+
+            // $projet->setVideoName(date("Yid_Hms") . "_" . $projet->getVideoName());
+            // $projet->getVideoFile()->move(
+            //  $projet->getVideoFile()->getPath(),
+            //     $projet->getVideoName()
+            // );
+        
             $em = $this->getDoctrine()->getManager();
             $em->persist($projet);
             $em->flush($projet);
+
+           // print_r($projet);
+
+            
 
             return $this->redirectToRoute('projet_show', array('id' => $projet->getId()));
         }

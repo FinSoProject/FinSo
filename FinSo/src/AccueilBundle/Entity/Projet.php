@@ -118,7 +118,7 @@ class Projet
         return $this->getNom();
     }
 
-     protected function getUploadRootDir(){
+    public function getUploadRootDir(){
 
         return __DIR__ . '/../../../web/uploads';
     }
@@ -376,9 +376,7 @@ class Projet
      */
     public function setVideoName($videoName)
     {
-        //$this->videoName = date("Yid_Hms") . "_" . $videoName;
-        $this->videoName =  $videoName;
-
+        $this->videoName = $videoName;
 
         return $this;
     }
