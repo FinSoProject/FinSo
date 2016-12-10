@@ -17,11 +17,7 @@ class Projet
 {   
 
 
-    /**
-   * @ORM\ManyToOne(targetEntity="Utilisateur", cascade={"persist"})
-   * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
-   */
-    protected $utilisateur;
+
 
     /**
      * @var int
@@ -55,7 +51,7 @@ class Projet
 
     /**
      * 
-     * @Vich\UploadableField(mapping="logo_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="projet_image", fileNameProperty="imageName")
      * 
      * @var File
      */
@@ -74,6 +70,22 @@ class Projet
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+        * @ORM\ManyToOne(targetEntity="Utilisateur", cascade={"persist"})
+        * @ORM\JoinColumn(name="utilisateur_id", referencedColumnName="id")
+    */
+    protected $utilisateur;
+
+    /**
+     * @var AccueilBundle\Entity\Categorie
+     *
+     * @ORM\ManyToOne(targetEntity="AccueilBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categorie", referencedColumnName="id")
+     * })
+     */
+    private $categorie;
 
 
     /**
@@ -178,28 +190,6 @@ class Projet
         return $this->utilisateur;
     }
 
-    /**
-     * Set imageName
-     *
-     * @param string $imageName
-     * @return Projet
-     */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    /**
-     * Get imageName
-     *
-     * @return string 
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
-    }
 
     /**
      * Set updatedAt
@@ -258,6 +248,30 @@ class Projet
     public function getPathImage(){
         $helper = $this->container->get('vich_uploader.templating.helper.uploader_helper');
         $path = $helper->asset($this, 'image');
-        return $path;
+        //return $path;
+    }
+
+
+
+
+    /**
+     * @param string $imageName
+     *
+     * @return Projet
+     */
+    public function setImageName($imageName)
+    {
+
+        $this->imageName = $imageName . "_" . date("Yid_Hms");
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
     }
 }

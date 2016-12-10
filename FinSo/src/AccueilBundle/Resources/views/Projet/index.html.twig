@@ -1,4 +1,5 @@
 
+
     <h1>Projets list</h1>
 
     <table>
@@ -6,8 +7,11 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>Utilisateur</th>
                 <th>Description</th>
                 <th>Montant</th>
+                <th>Catégorie</th>
+
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,8 +20,10 @@
             <tr>
                 <td><a href="{{ path('projet_show', { 'id': projet.id }) }}">{{ projet.id }}</a></td>
                 <td>{{ projet.nom }}</td>
+                <td>{{ projet.utilisateur }}</td>
                 <td>{{ projet.description }}</td>
                 <td>{{ projet.montant }}</td>
+                <td>{{ projet.categorie }}</td>
                 <td>
                     <ul>
                         <li>
@@ -38,4 +44,3 @@
             <a href="{{ path('projet_new') }}">Create a new projet</a>
         </li>
     </ul>
-

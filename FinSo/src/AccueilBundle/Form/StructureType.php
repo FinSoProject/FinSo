@@ -13,7 +13,15 @@ class StructureType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('type')->add('telephone')->add('secteur')->add('adresse')->add('email')->add('siteweb')        ;
+        $builder
+            ->add('nom')
+            ->add('type')
+            ->add('telephone')
+            ->add('secteur')
+            ->add('adresse')
+            ->add('email')
+            ->add('siteweb')
+                    ;
     }
     
     /**

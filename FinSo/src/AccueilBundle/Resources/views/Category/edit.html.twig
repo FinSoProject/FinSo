@@ -1,21 +1,24 @@
-{% extends 'base.html.twig' %}
+{#% extends 'AccueilBundle:Template:template.html.twig' %#}
 
-{% block body %}
-    <h1>Category edit</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('category_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}
+    <div class="">
+        <center><h4 class="panel-heading alert-danger">Modification de catégorie</h4></center>
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+                {{ form_errors(form.nom) }}
+                <div class="col-sm-4">
+                    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+
+            <center><span>{{ form_widget(form.Valider, {'attr': {'class': 'btn btn-success'}}) }}</span>
+             <span>{{ form_widget(form.Annuler, {'label': 'Annuler', 'attr': {'class': 'btn btn-warning'}}) }}</span></center>
+
+        {{ form_widget(form) }}
+        {{ form_end(form) }}    
+    </div>

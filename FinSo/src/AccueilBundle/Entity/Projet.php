@@ -77,6 +77,21 @@ class Projet
     */
     protected $utilisateur;
 
+    /**
+     * @var AccueilBundle\Entity\Categorie
+     *
+     * @ORM\ManyToOne(targetEntity="AccueilBundle\Entity\Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="categorie", referencedColumnName="id")
+     * })
+     */
+    private $categorie;
+
+    public function __toString(){
+        return $this->getNom();
+    }
+
+
 
     /**
      * Get id
@@ -263,5 +278,28 @@ class Projet
     public function getImageName()
     {
         return $this->imageName;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \AccueilBundle\Entity\Category $categorie
+     * @return Projet
+     */
+    public function setCategorie(\AccueilBundle\Entity\Category $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \AccueilBundle\Entity\Category 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

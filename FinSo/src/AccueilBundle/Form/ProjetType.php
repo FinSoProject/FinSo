@@ -17,7 +17,10 @@ class ProjetType extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('montant')
-            ->add('utilisateur') 
+            ->add('categorie', 'entity', array(
+                'class' => 'AccueilBundle:Category',
+                'choice_label' => 'Nom'
+            ))
             ->add('imageFile', 'file')
             ->add('Valider', 'submit') 
             ->add('Annuler','reset') 

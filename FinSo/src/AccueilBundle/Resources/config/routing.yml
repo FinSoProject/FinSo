@@ -2,6 +2,10 @@ accueil_projet:
     resource: "@AccueilBundle/Resources/config/routing/projet.yml"
     prefix:   /projet
 
+accueil_category:
+    resource: "@AccueilBundle/Resources/config/routing/category.yml"
+    prefix:   /categorie
+
 accueil_homepage:
     path:     /
     defaults: { _controller: AccueilBundle:Default:index }
