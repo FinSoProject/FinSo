@@ -18,6 +18,7 @@ class ProjetType extends AbstractType
             ->add('description')
             ->add('montant')
             ->add('utilisateur') 
+            ->add('imageFile', 'file')
             ->add('Valider', 'submit') 
             ->add('Annuler','reset') 
         ;

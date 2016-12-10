@@ -189,4 +189,27 @@ class Utilisateur
     {
         return $this->telephone;
     }
+
+    /**
+     * Set structure
+     *
+     * @param \AccueilBundle\Entity\Structure $structure
+     * @return Utilisateur
+     */
+    public function setStructure(\AccueilBundle\Entity\Structure $structure = null)
+    {
+        $this->structure = $structure;
+
+        return $this;
+    }
+
+    /**
+     * Get structure
+     *
+     * @return \AccueilBundle\Entity\Structure 
+     */
+    public function getStructure()
+    {
+        return $this->structure;
+    }
 }

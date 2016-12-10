@@ -130,4 +130,27 @@ class Media
     {
         return $this->type;
     }
+
+    /**
+     * Set projet
+     *
+     * @param \AccueilBundle\Entity\Projet $projet
+     * @return Media
+     */
+    public function setProjet(\AccueilBundle\Entity\Projet $projet = null)
+    {
+        $this->projet = $projet;
+
+        return $this;
+    }
+
+    /**
+     * Get projet
+     *
+     * @return \AccueilBundle\Entity\Projet 
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
 }
