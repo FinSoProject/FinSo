@@ -1,0 +1,5 @@
+/FinSo/app/cache/*
+/FinSo/app/logs/*
+!/FinSo/app/cache/.gitkeep
+!/FinSo/app/cache/.gitkeep
+
