@@ -22,6 +22,7 @@ class ProjetType extends AbstractType
                 'choice_label' => 'Nom'
             ))
             ->add('imageFile', 'file')
+            ->add('videoFile', 'file')
             ->add('Valider', 'submit') 
             ->add('Annuler','reset') 
         ;

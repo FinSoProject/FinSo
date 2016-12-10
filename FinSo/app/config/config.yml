@@ -78,3 +78,11 @@ vich_uploader:
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
+
+        projet_video:
+            uri_prefix:         /uploads/videos/projet
+            upload_destination: '%kernel.root_dir%/../web/uploads/videos/projet'
+            
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true

@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Projet
  *
@@ -65,6 +67,31 @@ class Projet
     private $imageName;
 
     /**
+     * 
+     * @Vich\UploadableField(mapping="projet_video", fileNameProperty="videoName")
+     * 
+     * @var File
+     * @Assert\File(
+     *  maxSize = "500M",
+     *  mimeTypes = {"video/mpeg", "video/mp4", "video/quicktime", "video/x-ms-wmv", "video/x-msvideo", "video/x-flv"},
+     *  mimeTypesMessage = "ce format de video est inconnu",
+     *  uploadIniSizeErrorMessage = "uploaded file is larger than the upload_max_filesize PHP.ini setting",
+     *  uploadFormSizeErrorMessage = "uploaded file is larger than allowed by the HTML file input field",
+     *  uploadErrorMessage = "uploaded file could not be uploaded for some unknown reason",
+     *  maxSizeMessage = "fichier trop volumineux"
+     * )
+     */
+    private $videoFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $videoName;
+
+
+    /**
      * @ORM\Column(type="datetime")
      *
      * @var \DateTime
@@ -89,6 +116,11 @@ class Projet
 
     public function __toString(){
         return $this->getNom();
+    }
+
+     protected function getUploadRootDir(){
+
+        return __DIR__ . '/../../../web/uploads';
     }
 
 
@@ -266,9 +298,9 @@ class Projet
      */
     public function setImageName($imageName)
     {
-
-        $this->imageName = $imageName . "_" . date("Yid_Hms");
-
+        
+        $this->imageName = $imageName;
+       
         return $this;
     }
 
@@ -301,5 +333,63 @@ class Projet
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $video
+     *
+     * @return Projet
+     */
+    public function setVideoFile(File $video = null)
+    {
+        $this->videoFile = $video;
+
+
+        if ($video) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getVideoFile()
+    {
+        return $this->videoFile;
+    }
+
+
+    public function getPathVideo(){
+        $helper = $this->container->get('vich_uploader.templating.helper.uploader_helper');
+        $path = $helper->asset($this, 'video');
+        //return $path;
+    }
+
+    /**
+     * Set videoName
+     *
+     * @param string $videoName
+     * @return Projet
+     */
+    public function setVideoName($videoName)
+    {
+        //$this->videoName = date("Yid_Hms") . "_" . $videoName;
+        $this->videoName =  $videoName;
+
+
+        return $this;
+    }
+
+    /**
+     * Get videoName
+     *
+     * @return string 
+     */
+    public function getVideoName()
+    {
+        return $this->videoName;
     }
 }
