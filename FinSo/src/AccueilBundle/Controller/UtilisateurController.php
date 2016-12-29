@@ -3,6 +3,7 @@
 namespace AccueilBundle\Controller;
 
 use AccueilBundle\Entity\Utilisateur;
+use AccueilBundle\Entity\Structure;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,8 +23,17 @@ class UtilisateurController extends Controller
 
         $utilisateurs = $em->getRepository('AccueilBundle:Utilisateur')->findAll();
 
+
+        //$utilisateur = $em->getRepository("AccueilBundle:Utilisateur")->UtilisateurStructure();
+
+        //foreach ($utilisateur as $user) {
+            //echo $user->getStructure()->getEmail();
+        //}
+
+
         return $this->render('utilisateur/index.html.twig', array(
             'utilisateurs' => $utilisateurs,
+            
         ));
     }
 
@@ -32,23 +42,53 @@ class UtilisateurController extends Controller
      *
      */
     public function newAction(Request $request)
-    {
+    {   
+        
+        $em = $this->getDoctrine()->getManager();
         $utilisateur = new Utilisateur();
+        $structure = new Structure();
         $form = $this->createForm('AccueilBundle\Form\UtilisateurType', $utilisateur);
+        $form1 = $this->createForm('AccueilBundle\Form\StructureType', $structure);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() ) {
             $em = $this->getDoctrine()->getManager();
+            $structure = new Structure();
+            $structure=$utilisateur->getStructure();
+
+            $emailuser= $utilisateur->getEmail();
+            $resultatmail = $em->getRepository('AccueilBundle:Utilisateur')->findcheckmail($emailuser);
+
+            if(empty($resultatmail)){
+            $utilisateur->setStructure($structure);
             $em->persist($utilisateur);
             $em->flush($utilisateur);
+            
+            $this->get('session')->getFlashBag()->add(
+            'success',
+            'ajout effectue avec succes !'
+            );
 
-            return $this->redirectToRoute('utilisateur_show', array('id' => $utilisateur->getId()));
+            return $this->redirectToRoute('utilisateur_new');
+           }
+
+        else{
+
+            $this->get('session')->getFlashBag()->add(
+            'erreuremail',
+            'Erreur cette adresse mail existe deja'
+            );
+         }
+
+
         }
-
+        
         return $this->render('utilisateur/new.html.twig', array(
             'utilisateur' => $utilisateur,
             'form' => $form->createView(),
         ));
+
+
     }
 
     /**

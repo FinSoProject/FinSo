@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="{{ asset('public/css/bootstrap.min.css')}} " rel="stylesheet">
+        <link href="{{asset('public/css/bootstrap.css')}}" rel="stylesheet">
+        <script  type="text/javascript" src="{{asset('https://code.jquery.com/jquery-1.11.0.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('https://code.jquery.com/jquery-migrate-1.2.1.min.js')}}"></script>
+        <script src="{{asset('https://use.fontawesome.com/c9ea00b40c.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/bootstrap.js')}}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+        {% block javascripts %}
+        <script type="text/javascript">
+       $(function() {
+       $('[data-confirm]').click(function(ev) {
+        var href = $(this).attr('href');
+        
+        if (!$('#dataConfirmModal').length) {
+            $('body').append('<div id="dataConfirmModal" class="modal" role="dialog" aria-labelledby="dataConfirmLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><h3 id="dataConfirmLabel">Merci de confirmer</h3></div><div class="modal-body"></div><div class="modal-footer"><button class="btn" data-dismiss="modal" aria-hidden="true"><i class="fa fa-check-square" aria-hidden="true"></i>Non</button><a class="btn btn-danger" id="dataConfirmOK"><i class="fa fa-check-square" aria-hidden="true" style="color:green;"></i>Oui</a></div></div></div></div>');
+        }
+        $('#dataConfirmModal').find('.modal-body').text($(this).attr('data-confirm'));
+        $('#dataConfirmOK').attr('href', href);
+        $('#dataConfirmModal').modal({show:true});
+        
+        return false;
+    });
+
+});   
+
+      $(function(){
+      $(document).on('click','#dataConfirmOK',function(e) {
+      e.preventDefault();
+
+      jQuery(document).ready(function($){
+      $('#form').submit();
+      });
+     })
+     })
+
+$(document).ready(function() {             
+    $("#dataConfirmModal").modal("show");
+});
+</script>
+{% endblock %}
+</body>
+</html>

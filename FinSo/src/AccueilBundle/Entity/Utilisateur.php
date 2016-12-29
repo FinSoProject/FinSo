@@ -196,7 +196,7 @@ class Utilisateur
      * @param \AccueilBundle\Entity\Structure $structure
      * @return Utilisateur
      */
-    public function setStructure(\AccueilBundle\Entity\Structure $structure = null)
+    public function setStructure(\AccueilBundle\Entity\Structure $structure)
     {
         $this->structure = $structure;
 

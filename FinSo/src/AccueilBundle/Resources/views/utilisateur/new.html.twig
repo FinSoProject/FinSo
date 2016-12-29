@@ -1,0 +1,220 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="col-md-8">
+ <center><h5 class="panel-heading alert-danger">Formulaire d'inscription </h5></center>
+
+  {{ form_start(form, {'attr': {'id':'form', 'class': 'form-horizontal'}}) }}
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+    <hr>
+    
+    
+    {% for flashMessage in app.session.flashbag.get('success') %}
+      <div class="alert alert-success alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> 
+      {{ flashMessage }} 
+      </div>
+      {% endfor %}
+
+
+      {% for flashMessage in app.session.flashbag.get('erreuremail') %}
+      <div class="alert alert-danger alert-dismissable">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a> 
+      {{ flashMessage }} 
+      </div>
+      {% endfor %}
+    
+
+    <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.nom, "nom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.nom) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.prenom, "Prenom", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.prenom) }}
+
+        <div class="col-sm-6">
+            {# Génération de l'input. #}
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.motsdepasse, "Mots de Passe", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.motsdepasse) }}
+
+        <div class="col-sm-6">
+            {# Génération de l'input. #}
+            {{ form_widget(form.motsdepasse, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.email) }}
+
+        <div class="col-sm-6">
+            {# Génération de l'input. #}
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+   <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.telephone, "Telephone", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.telephone) }}
+
+        <div class="col-sm-6">
+            {# Génération de l'input. #}
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+    
+  <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.structure.nom, "Nom Structure", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.structure.nom) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.structure.nom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+
+  <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.structure.type, "Type", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.structure.type) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.structure.type, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+  
+  <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.structure.telephone, "Telephone", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.structure.telephone) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.structure.telephone, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+
+
+  <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.structure.adresse, "Adresse", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.structure.adresse) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.structure.adresse, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+
+ <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.structure.email, "Email", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.structure.email) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.structure.email, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+
+  <div class="form-group">
+        {# Génération du label. #}
+        {{ form_label(form.structure.secteur, "Secteur", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.structure.secteur) }}
+
+        <div class="col-sm-6">
+            {# Génération de l'input. #}
+            {{ form_widget(form.structure.secteur, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+
+  <div class="form-group">
+      {# Génération du label. #}
+      {{ form_label(form.structure.siteweb, "Siteweb", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    
+      {# Affichage des erreurs pour ce champ précis. #}
+      {{ form_errors(form.structure.siteweb) }}
+
+      <div class="col-sm-6">
+          {# Génération de l'input. #}
+          {{ form_widget(form.structure.siteweb, {'attr': {'class': 'form-control'}}) }}
+      </div>
+  </div>
+
+  <div class="form-group">
+      
+      <div class="col-sm-6">
+      
+      </div>
+
+      <div class="col-sm-6">
+      {{ form_widget(form.valider, {'attr': {'id':'button', 'data-confirm':"Etes vous sur de faire l'enregistrement", 'class': 'btn btn-primary'}}) }}
+      {{ form_widget(form.annuler, {'attr': {'class': 'btn btn-danger'}}) }}
+      </div>
+  </div>
+
+
+
+
+
+  <div class="form-group">
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-6">
+      {{ form_rest(form) }}
+      </div>
+  </div>
+{% endblock %}

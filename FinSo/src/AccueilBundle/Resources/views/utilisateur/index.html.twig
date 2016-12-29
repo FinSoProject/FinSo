@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Utilisateurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Motsdepasse</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Nom Structure</th>
+                <th>Type Structure</th>
+                <th>Telephone</th>
+                <th>Secteur</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Site Web</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td>{{ utilisateur.id }}</id>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.motsdepasse }}</td>
+                <td>{{ utilisateur.email }}</td>
+                <td>{{ utilisateur.telephone }}</td>
+                <td>{{ utilisateur.structure.nom }}</td>
+                <td>{{ utilisateur.structure.type }}</td>
+                <td>{{ utilisateur.structure.telephone }}</td>
+                <td>{{ utilisateur.structure.secteur}}</td>
+                <td>{{ utilisateur.structure.adresse }}</td>
+                <td>{{ utilisateur.structure.email }}</td>
+                <td>{{ utilisateur.structure.siteweb }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('utilisateur_show', { 'id': utilisateur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('utilisateur_edit', { 'id': utilisateur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+
+
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('utilisateur_new') }}">Create a new utilisateur</a>
+        </li>
+    </ul>
+{% endblock %}
