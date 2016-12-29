@@ -31,7 +31,7 @@ class UtilisateurController extends Controller
         //}
 
 
-        return $this->render('utilisateur/index.html.twig', array(
+        return $this->render('AccueilBundle:utilisateur:index.html.twig', array(
             'utilisateurs' => $utilisateurs,
             
         ));
@@ -83,7 +83,7 @@ class UtilisateurController extends Controller
 
         }
         
-        return $this->render('utilisateur/new.html.twig', array(
+        return $this->render('AccueilBundle:utilisateur:new.html.twig', array(
             'utilisateur' => $utilisateur,
             'form' => $form->createView(),
         ));
@@ -99,7 +99,7 @@ class UtilisateurController extends Controller
     {
         $deleteForm = $this->createDeleteForm($utilisateur);
 
-        return $this->render('utilisateur/show.html.twig', array(
+        return $this->render('AccueilBundle:utilisateur:show.html.twig', array(
             'utilisateur' => $utilisateur,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -121,7 +121,7 @@ class UtilisateurController extends Controller
             return $this->redirectToRoute('utilisateur_edit', array('id' => $utilisateur->getId()));
         }
 
-        return $this->render('utilisateur/edit.html.twig', array(
+        return $this->render('AccueilBundle:utilisateur:edit.html.twig', array(
             'utilisateur' => $utilisateur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
