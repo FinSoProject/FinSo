@@ -1,1 +1,45 @@
-Hello World!
+                
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <link href="{{asset('public/css/bootstrap.min.css')}}" rel="stylesheet">
+</head>
+<body>
+   <div class="panel-body">
+                        <form action="">
+                            <table id="monpanier" class="table montable-bordered " style="border: 1px solid #424242;">
+                                <thead class="monentete-success">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Descrition</th>
+                                    <th>Montant</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for p in projet %}
+                                    <form action="{{ path('gestionstock_panier_achete',{'id':p.id}) }}" method="get">
+                                    <tr>
+                                        <td >{{ p.Nom }}</td>
+                                        <td >{{ p.Description }}</td>
+                                         <td >{{ p.Montant }}</td>
+                                         <td>
+                                             
+                                              <center>
+                                            <button type="button" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></button>
+                                            
+                                            <button type="button" class="btn btn-default btn-sm">
+                                            <a  href="{{ path('administration_affiche',{'id':p.id}) }} " style="color:red;text-decoration:none"><i class="glyphicon glyphicon-remove"></i></a>
+                                            </button>
+                                            </center>
+                                         </td>
+                                    </tr>
+                                    </form>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+</body>
+</html>
+                   
