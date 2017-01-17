@@ -1,7 +1,7 @@
 <?php
 
 namespace AccueilBundle\Entity;
-
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,11 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="AccueilBundle\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur extends BaseUser
 { 
-
-
-     /**
+   /**
    * @ORM\ManyToOne(targetEntity="Structure", cascade={"persist", "remove"})
    * @ORM\JoinColumn(name="structure_id", referencedColumnName="id")
    */
@@ -27,7 +25,7 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -55,14 +53,14 @@ class Utilisateur
      *
      * @ORM\Column(name="Email", type="string", length=255)
      */
-    private $email;
+    protected $emails;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Telephone", type="string", length=255)
      */
-    private $telephone;
+    protected $telephone;
 
 
     /**
@@ -152,7 +150,7 @@ class Utilisateur
      */
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->emails = $email;
 
         return $this;
     }
@@ -164,7 +162,7 @@ class Utilisateur
      */
     public function getEmail()
     {
-        return $this->email;
+        return $this->emails;
     }
 
     /**
@@ -211,5 +209,6 @@ class Utilisateur
     public function getStructure()
     {
         return $this->structure;
-    }
+    }    
+
 }
