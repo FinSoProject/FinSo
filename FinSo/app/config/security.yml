@@ -14,14 +14,16 @@ security:
        main:
            pattern: ^/
            form_login:
-               check_path: /login_check
-               login_path: /login
                provider: fos_userbundle
+               check_path: fos_user_security_check
+               login_path: fos_user_security_login
+               success_handler: redirect.after.login
            logout:
-               path:    /logout
+               path:    fos_user_security_logout
                target: /
-              # provider: fos_userbundle
-              # csrf_provider: form.csrf_provider
+               success_handler: redirect.after.logout
+               #provider: fos_userbundle
+               csrf_provider: form.csrf_provider
 
            anonymous:    true
 

@@ -12,4 +12,24 @@ use Doctrine\ORM\EntityRepository;
  */
 class UtilisateurRepository extends EntityRepository
 {
+	public function UtilisateurStructure()
+    {
+        /* Création de la requète avec le query builder */
+        $queryBuilder = $this->_em->createQueryBuilder();
+        $queryBuilder->select("f, g")
+                     ->from("AccueilBundle:Utilisateur", "f")
+                     ->leftJoin("f.structure", "g");
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    public function findcheckmail($email){
+
+        $queryBuilder = $this->_em->createQueryBuilder();
+        $queryBuilder->select('a')
+        ->from('AccueilBundle:utilisateur', 'a')
+        ->where('a.email = :mail')
+        ->setParameter('mail', $email);
+      return $queryBuilder->getQuery()->getResult();   
+    }
 }

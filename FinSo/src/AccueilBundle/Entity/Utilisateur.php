@@ -48,12 +48,6 @@ class Utilisateur extends BaseUser
      */
     private $motsdepasse;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Email", type="string", length=255)
-     */
-    protected $emails;
 
     /**
      * @var string
@@ -140,29 +134,6 @@ class Utilisateur extends BaseUser
     public function getMotsdepasse()
     {
         return $this->motsdepasse;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Utilisateur
-     */
-    public function setEmail($email)
-    {
-        $this->emails = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->emails;
     }
 
     /**

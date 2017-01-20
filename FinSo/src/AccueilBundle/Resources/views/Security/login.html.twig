@@ -10,9 +10,13 @@
 
         <input type="hidden" name="_target_path" value="{{ url('iabsis_videotheque_admin') }}" />
 
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        <div class="form-group">
+            <label for="username" class="col-sm-4 control-label">Username:</label>
+
+        <div class="col-sm-6">
+            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" />
+        </div>
+
         </div>
 
         <div>

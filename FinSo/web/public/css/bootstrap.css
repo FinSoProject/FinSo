@@ -4279,9 +4279,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  padding: 0px 15px;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 16px;
+  
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -4289,6 +4290,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand > img {
   display: block;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
@@ -4498,7 +4501,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #080808;
+  color:white;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -4513,7 +4517,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: white;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
@@ -6248,7 +6252,7 @@ button.close {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 .carousel-inner > .item {
   position: relative;
@@ -6260,6 +6264,7 @@ button.close {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   line-height: 1;
+  width:50%;
 }
 @media all and (transform-3d), (-webkit-transform-3d) {
   .carousel-inner > .item {
@@ -6763,11 +6768,25 @@ button.close {
   }
 }
 
+.espace{
+  margin-top: 50px;
+}
+
+.log{
+  margin-bottom: 55px;
+}
+
 .marge {
   margin-left: 60px;
 }
 .couleur{
-  background-color: #a94442;
-  text-decoration: white;
+  background-color: #222;
+  color: white;
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.centre{
+  text-align: center;
+
+}

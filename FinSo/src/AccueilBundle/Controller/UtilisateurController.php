@@ -55,9 +55,24 @@ class UtilisateurController extends Controller
             $em = $this->getDoctrine()->getManager();
             $structure = new Structure();
             $structure=$utilisateur->getStructure();
-
+            $username=$utilisateur->getNom();
+            $utilisateur->setUsername($username);
+            //$role = array('ROLE_USER');
+            $utilisateur->setRoles(array('ROLE_USER'));
+            $utilisateur->setEnabled(1);
+            
             $emailuser= $utilisateur->getEmail();
             $resultatmail = $em->getRepository('AccueilBundle:Utilisateur')->findcheckmail($emailuser);
+            //echo "$resultatmail";
+            $userName=$utilisateur->getNom();
+            $userManager = $this->get('fos_user.user_manager');
+            //$user = $userManager->loadUserByUsername($userName);
+            $encoder = $this->container->get('security.encoder_factory')->getEncoder($utilisateur);
+            $password = $encoder->encodePassword($form->get('motsdepasse')->getData(), $utilisateur->getSalt());
+            $utilisateur->setPassword($password);
+            $userManager->updateUser($utilisateur);
+
+            
 
             if(empty($resultatmail)){
             $utilisateur->setStructure($structure);
