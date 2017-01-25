@@ -11,6 +11,14 @@ accueil_category:
     resource: "@AccueilBundle/Resources/config/routing/category.yml"
     prefix:   /categorie
 
+accueil_contribution:
+    resource: "@AccueilBundle/Resources/config/routing/contribution.yml"
+    prefix:   /contribution
+
+accueil_contributeur:
+    resource: "@AccueilBundle/Resources/config/routing/contributeur.yml"
+    prefix:   /contributeur
+
 accueil_homepage:
     path:     /
     defaults: { _controller: AccueilBundle:Default:index }

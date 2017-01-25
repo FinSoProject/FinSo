@@ -299,7 +299,7 @@ class Projet
     public function setImageName($imageName)
     {
         
-        $this->imageName = date("Yid_Hms") . "_" . $imageName;
+        $this->imageName = $imageName;
        
         return $this;
     }
@@ -376,7 +376,7 @@ class Projet
      */
     public function setVideoName($videoName)
     {
-        $this->videoName = date("Yid_Hms") . "_" . $videoName;
+        $this->videoName = $videoName;
 
         return $this;
     }

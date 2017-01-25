@@ -1,7 +1,7 @@
 <?php
 
 namespace AccueilBundle\Entity;
-
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,11 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="utilisateur")
  * @ORM\Entity(repositoryClass="AccueilBundle\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur extends BaseUser
 { 
-
-
-     /**
+   /**
    * @ORM\ManyToOne(targetEntity="Structure", cascade={"persist", "remove"})
    * @ORM\JoinColumn(name="structure_id", referencedColumnName="id")
    */
@@ -27,7 +25,7 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -50,19 +48,13 @@ class Utilisateur
      */
     private $motsdepasse;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Email", type="string", length=255)
-     */
-    private $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Telephone", type="string", length=255)
      */
-    private $telephone;
+    protected $telephone;
 
 
     /**
@@ -145,29 +137,6 @@ class Utilisateur
     }
 
     /**
-     * Set email
-     *
-     * @param string $email
-     * @return Utilisateur
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
      * Set telephone
      *
      * @param string $telephone
@@ -196,7 +165,7 @@ class Utilisateur
      * @param \AccueilBundle\Entity\Structure $structure
      * @return Utilisateur
      */
-    public function setStructure(\AccueilBundle\Entity\Structure $structure = null)
+    public function setStructure(\AccueilBundle\Entity\Structure $structure)
     {
         $this->structure = $structure;
 
@@ -211,5 +180,6 @@ class Utilisateur
     public function getStructure()
     {
         return $this->structure;
-    }
+    }    
+
 }

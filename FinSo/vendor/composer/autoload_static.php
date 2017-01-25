@@ -52,6 +52,7 @@ class ComposerStaticInitb1457dc820bfa3dc396be26a509a135b
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Paydunya\\' => 9,
         ),
         'M' => 
         array (
@@ -166,6 +167,10 @@ class ComposerStaticInitb1457dc820bfa3dc396be26a509a135b
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Paydunya\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paydunya/paydunya/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -209,6 +214,13 @@ class ComposerStaticInitb1457dc820bfa3dc396be26a509a135b
             'SensioLabs\\Security' => 
             array (
                 0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
+            ),
+        ),
+        'R' => 
+        array (
+            'Requests' => 
+            array (
+                0 => __DIR__ . '/..' . '/rmccue/requests/library',
             ),
         ),
         'M' => 
