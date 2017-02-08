@@ -1,35 +1,42 @@
-                
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-     <link href="{{asset('public/css/bootstrap.min.css')}}" rel="stylesheet">
-</head>
-<body>
-   <div class="panel-body">
-                        <form action="">
+{% extends "AdministrationBundle:Default:admin.html.twig" %}
+ {% block corps %}
+   
+        <div class="col-md-12 portlets">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="pull-left"></div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                  <div class="padd">
+                  <form action="">
                             <table id="monpanier" class="table montable-bordered " style="border: 1px solid #424242;">
                                 <thead class="monentete-success">
                                 <tr>
+                                    <th>Id</th>
                                     <th>Nom</th>
-                                    <th>Descrition</th>
                                     <th>Montant</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for p in projet %}
-                                    <form action="{{ path('gestionstock_panier_achete',{'id':p.id}) }}" method="get">
+                                    <form action="#" method="get">
                                     <tr>
+                                        <td >{{ p.id }}</td>
                                         <td >{{ p.Nom }}</td>
-                                        <td >{{ p.Description }}</td>
                                          <td >{{ p.Montant }}</td>
                                          <td>
                                              
                                               <center>
-                                            <button type="button" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-edit"></i></button>
+                                            <button type="button" class="btn-setting"><i class="glyphicon glyphicon-edit"></i></button>
                                             
                                             <button type="button" class="btn btn-default btn-sm">
-                                            <a  href="{{ path('administration_affiche',{'id':p.id}) }} " style="color:red;text-decoration:none"><i class="glyphicon glyphicon-remove"></i></a>
+                                            <a  href="{{ path('administration_affiche',{'id':p.id}) }} " style="color:red;text-decoration:none"><i class="btn-sm "></i></a>
                                             </button>
                                             </center>
                                          </td>
@@ -39,7 +46,8 @@
                                 </tbody>
                             </table>
                         </form>
-                    </div>
-</body>
-</html>
-                   
+                  </div>
+                </div>
+            </div>
+        </div>
+{%endblock%}             

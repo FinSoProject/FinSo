@@ -1,12 +1,29 @@
-<head>
-    <title></title>
-     <link href="{{asset('public/css/bootstrap.min.css')}}" rel="stylesheet">
-</head>
-<body>
-   <div class="panel-body">
-  <p>Nom :  {{ projet.Nom }}</p>
-  <p>Description : {{ projet.Description }}</p>
-  <p>Montont : {{ projet.Montant }}fcf</p>
- </div>
-</body>
-</html>
+{% extends "AdministrationBundle:Default:admin.html.twig" %}
+ {% block corps %}
+   
+        <div class="col-md-12 portlets">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="pull-left"></div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a> 
+                    <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                  <div class="padd">
+                   <center>  <video src="{{ asset(vich_uploader_asset(projet, 'videoFile')) }} " alt="{{ projet.videoName }}"  controls poster="{{ asset(vich_uploader_asset(projet, 'imageFile')) }}" style="height:300px; width:800px; padding:10px;" >
+                         <source src="sintel.mp4" />   
+                          <source src="sintel.webm" />    
+                          <source src="sintel.ogv" /> 
+                     
+                     </video></center>
+                     <center> <p>Description : {{ projet.Description }}</p></center>
+                       <p>Nom :  {{ projet.Nom }}</p>
+                       <p>Montont : {{ projet.Montant  }}fcf</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+{%endblock%}             
